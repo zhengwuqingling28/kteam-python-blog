@@ -1,5 +1,6 @@
 # Python Django Blog
 
+This is my exercise blog for learn Django at KTeam.  
 
 ## 🚀 Quick start
 
