@@ -9,6 +9,10 @@
     git clone https://github.com/zhengwuqingling28/kteam-python-blog.git
     ```
 1. **Step 2.**
+    ```sh
+    # go to project
+    cd kpy_web
+    ```
     Create migration
     ```she
     python manage.py makemigrations
