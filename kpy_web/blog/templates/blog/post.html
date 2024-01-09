@@ -1,0 +1,26 @@
+{% extends "pages/base.html" %}
+
+{% block title %}{{post.title}}{% endblock %} 
+
+{% block content %} 
+<h3>
+    {{post.title}}
+</h3>
+<img src="{{ post.image.url }}" alt="{{ post.title }}">
+<h6>
+    on {{post.created_at}}
+</h6>
+{{post.content|safe|linebreaks}}
+<!-- Hiển thị tất cả bình luận của bài viết -->
+{% for comment in comments %}
+  <p>{{ comment.author.username }} - {{ comment.created_at }}:</p>
+  <p>{{ comment.content }}</p>
+{% endfor %}
+
+<!-- Hiển thị form để thêm bình luận mới -->
+<form method="POST" action="{% url 'add_comment' post.id %}">
+  {% csrf_token %}
+  {{form.content}}
+  <button type="submit">Add Comment</button>
+</form>
+{% endblock %}

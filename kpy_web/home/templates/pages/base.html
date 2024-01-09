@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2">
+          <img
+            src="{% static 'img/avt.jpg' %}"
+            class="responsive-img"
+            alt="Example Image"
+          />
+        </div>
+        <div class="col-sm-10">
+          <h1>Blog làm từ Python Django</h1>
+        </div>
+        <div class="col-sm-1">
+          {% if user.username %}
+          <p>Xin chào {{user.username}}</p>
+          <p><a href='/logout'> Logout </a>
+          {% else %}
+          <p><a href="/register">Register</a>
+          <p><a href="/login">Login</a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <div class="bs-sliderbar">
+            <ul class="nav flex-column">
+              <li>
+                <a class="nav-link active" href="/">Thông tin cá nhân</a>
+              </li>
+              <li>
+                <a class="nav-link" href="/blog">Bài viết</a>
+              </li>
+              <li>
+                <a class="nav-link" href="/contact">Liên hệ</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-10">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
