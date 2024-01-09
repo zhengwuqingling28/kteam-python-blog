@@ -6,7 +6,7 @@
 1.  **Step 1.**
     Clone the project
     ```sh
-    git clone https://zhengwuqingling28/kteam-python-blog.git
+    git clone https://github.com/zhengwuqingling28/kteam-python-blog.git
     ```
 1. **Step 2.**
     Create migration
